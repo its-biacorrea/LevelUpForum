@@ -3,6 +3,7 @@ import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
 import AppBar from "./components/AppBar";
 import PostsListPage from "./screens/PostsListPage";
+import PostInsertScreen from "./screens/PostInsertScreen";
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <AppBar />
       <HomeScreen />
       <PostsListPage />
+      <PostInsertScreen />
       {/*<LoginScreen />
       <ProfileScreen user="kkkkk" />
       <TopicDetailScreen user="kkkkk" />

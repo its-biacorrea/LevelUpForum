@@ -76,6 +76,8 @@ export default function AppBar() {
         </a>
         <div className="nav">
           <a href="#postMaisCurtidos">POSTS MAIS CURTIDOS</a>
+          <a href="#posts">POSTS</a>
+          <a href="#addPost">ADICIONAR NOVO POST</a>
         </div>
         <div className="appbar-end">
           {!loggedIn && (
