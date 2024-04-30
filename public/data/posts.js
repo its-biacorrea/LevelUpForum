@@ -9,7 +9,7 @@ const topics = [
     keywords: ["Inteligência Artificial", "Tecnologia", "Inovação"],
     comments: ["Excelente tópico!", "Estou ansioso para ver as novidades!"],
     likes: 35,
-    dislikes: 5, 
+    dislikes: 5,
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const topics = [
     description:
       "ore como a medicina personalizada está transformando o tratamento de doenças e melhorando a saúde individual.",
     publicationDate: "03/04/2024",
-    userName: Expl"MedicineAdvocate",
+    userName: "MedicineAdvocate",
     keywords: ["Medicina", "Saúde", "Inovação Médica"],
     comments: ["Incrível avanço!", "Espero ver mais investimentos nessa área."],
     likes: 28,

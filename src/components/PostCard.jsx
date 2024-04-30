@@ -1,4 +1,5 @@
 import React from "react";
+import { BiLike, BiDislike } from "react-icons/bi"; // Import BiLike and BiDislike from react-icons/bi
 
 export default function PostCard({ topic, onLike, onDislike }) {
   return (
