@@ -12,7 +12,7 @@ export default function PostInsertScreen() {
   const baseUrl =
     "https://projetodebloco-8515c-default-rtdb.asia-southeast1.firebasedatabase.app";
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
 
@@ -33,21 +33,25 @@ export default function PostInsertScreen() {
       dislikes: 0,
     };
 
-    fetch(`${baseUrl}/topics.json`, {
-      method: "post",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(topic),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Erro ao adicionar o post.");
-        }
-        setMsg("Salvo com sucesso");
-      })
-      .catch((error) => setMsg(error.message))
-      .finally(() => setLoading(false));
+    try {
+      const response = await fetch(`${baseUrl}/posts.json`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(topic),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro ao adicionar o post.");
+      }
+
+      setMsg("Salvo com sucesso");
+    } catch (error) {
+      setMsg(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -69,9 +73,7 @@ export default function PostInsertScreen() {
             />
           </div>
           <div className="form-group">
-            <label className="form-label" htmlFor="description">
-              Descrição:
-            </label>
+            <label className="form-label" htmlFor="description"></label>
             <input
               type="text"
               id="description"
