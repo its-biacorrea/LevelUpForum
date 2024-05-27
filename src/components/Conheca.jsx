@@ -48,7 +48,7 @@ export default function Posts() {
       <h1>Tópicos mais curtidos</h1>
       <div className="grid-container">{renderTopics()}</div>
       <h4>Quer ver mais? Faça o login ou se cadastre agora!</h4>
-      <a href="#login" className="logo">
+      <a href="/login" className="logo">
         Log In
       </a>
     </div>

@@ -49,7 +49,7 @@ export default function AppBar() {
   return (
     <div className="appbar-container">
       <div className="container-appbar" id="home">
-        <a href="#home">
+        <a href="/home">
           <div className="logo-appbar">
             <div>
               <img src="logo.png" alt="Logo" />
@@ -60,13 +60,13 @@ export default function AppBar() {
           </div>
         </a>
         <div className="nav">
-          <a href="#postMaisCurtidos">POSTS MAIS CURTIDOS</a>
-          <a href="#posts">POSTS</a>
-          <a href="#addPost">ADICIONAR NOVO POST</a>
+          <a href="/home#postMaisCurtidos">POSTS MAIS CURTIDOS</a>
+          <a href="/posts">POSTS</a>
+          <a href="/add-post">ADICIONAR NOVO POST</a>
         </div>
         <div className="appbar-end">
           {!loggedIn && (
-            <a href="#login" id="login" onClick={handleLogin}>
+            <a href="/login" id="login" onClick={handleLogin}>
               <FiLogIn />
             </a>
           )}
@@ -80,15 +80,13 @@ export default function AppBar() {
           <span className="icon">
             <IoMdHome />
           </span>
-          <a href="#home">Home</a>
+          <a href="/">Home</a>
         </div>
         <div className="icons-container">
           <span className="icon">
             <FaLevelUpAlt />
           </span>
-          <a href="https://egvelho-blog-template.netlify.app/blog">
-            Posts mais curtidos
-          </a>
+          <a href="/home#postMaisCurtidos">Posts mais curtidos</a>
         </div>
         {loggedIn && (
           <>
@@ -96,13 +94,13 @@ export default function AppBar() {
               <span className="icon">
                 <FiLogIn />
               </span>
-              <a href="#login">Login</a>
+              <a href="/login">Login</a>
             </div>
             <div className="icons-container">
               <span className="icon">
                 <HiMagnifyingGlassPlus />
               </span>
-              <a href="#saiba-mais">Saiba mais</a>
+              <a href="/home#saiba-mais">Saiba mais</a>
             </div>
           </>
         )}

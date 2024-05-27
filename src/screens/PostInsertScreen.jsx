@@ -34,6 +34,9 @@ export default function PostInsertScreen() {
     };
 
     try {
+      console.log("Sending request to:", `${baseUrl}/posts.json`);
+      console.log("Payload:", topic);
+
       const response = await fetch(`${baseUrl}/posts.json`, {
         method: "POST",
         headers: {
@@ -42,12 +45,15 @@ export default function PostInsertScreen() {
         body: JSON.stringify(topic),
       });
 
+      console.log("Response:", response);
+
       if (!response.ok) {
         throw new Error("Erro ao adicionar o post.");
       }
 
       setMsg("Salvo com sucesso");
     } catch (error) {
+      console.error("Error:", error);
       setMsg(error.message);
     } finally {
       setLoading(false);
@@ -55,7 +61,7 @@ export default function PostInsertScreen() {
   };
 
   return (
-    <>
+    <div className="div-post">
       <h1 id="addPost">Adicionar novo Post</h1>
       <div className="container-form">
         <form className="form" onSubmit={handleSubmit}>
@@ -73,7 +79,9 @@ export default function PostInsertScreen() {
             />
           </div>
           <div className="form-group">
-            <label className="form-label" htmlFor="description"></label>
+            <label className="form-label" htmlFor="description">
+              Descrição:
+            </label>
             <input
               type="text"
               id="description"
@@ -109,11 +117,12 @@ export default function PostInsertScreen() {
               required
             />
           </div>
-          <button type="submit" className="btn-submit">
-            Enviar
+          <button type="submit" className="btn-submit" disabled={loading}>
+            {loading ? "Enviando..." : "Enviar"}
           </button>
         </form>
+        {msg && <p>{msg}</p>}
       </div>
-    </>
+    </div>
   );
 }

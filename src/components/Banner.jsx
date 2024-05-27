@@ -11,7 +11,7 @@ export default function Banner() {
           experiência!
         </h2>
         <p>Quer saber mais?</p>
-        <a href="#saiba-mais">CLIQUE AQUI!</a>
+        <a href="/home#saiba-mais">CLIQUE AQUI!</a>
       </div>
     </div>
   );

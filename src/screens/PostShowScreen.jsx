@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-export default function PostShowScreen({ match }) {
-  const postId = match.params.id;
-
+export default function PostShowScreen() {
+  const { id: postId } = useParams();
   const baseUrl =
     "https://projetodebloco-8515c-default-rtdb.asia-southeast1.firebasedatabase.app";
 
@@ -19,6 +19,9 @@ export default function PostShowScreen({ match }) {
         return res.json();
       })
       .then((data) => {
+        if (typeof data.keywords === "string") {
+          data.keywords = data.keywords.split(", ");
+        }
         setTopic(data);
         setLoading(false);
       })
@@ -38,7 +41,12 @@ export default function PostShowScreen({ match }) {
           <p>Descrição: {topic.description}</p>
           <p>Data de publicação: {topic.publicationDate}</p>
           <p>Usuário: {topic.userName}</p>
-          <p>Palavras-chave: {topic.keywords.join(", ")}</p>
+          <p>
+            Palavras-chave:{" "}
+            {Array.isArray(topic.keywords)
+              ? topic.keywords.join(", ")
+              : topic.keywords}
+          </p>
           <p>Número de likes: {topic.likes}</p>
           <p>Número de dislikes: {topic.dislikes}</p>
           <p>Número de comentários: {topic.comments.length}</p>

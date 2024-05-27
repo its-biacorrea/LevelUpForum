@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BiLike, BiDislike } from "react-icons/bi";
 import "../styles/PostList.css";
 
 export default function PostCard({ topic, onLike, onDislike }) {
   return (
     <div className="card-container">
       <Link to={`/post/${topic.id}`} className="card-link">
-        {" "}
         <div className="card">
           <div className="card-content">
             <div className="card-content-inner">
@@ -22,7 +22,12 @@ export default function PostCard({ topic, onLike, onDislike }) {
               <br />
               <span>Usuário: {topic.userName}</span>
               <br />
-              <span>Palavras-chave: {topic.keywords.join(", ")}</span>
+              <span>
+                Palavras-chave:{" "}
+                {Array.isArray(topic.keywords)
+                  ? topic.keywords.join(", ")
+                  : topic.keywords}
+              </span>
               <br />
               <span onClick={onLike}>
                 <BiLike /> {topic.likes}
