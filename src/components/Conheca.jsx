@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css";
+import "../styles/Home.css";
 import { BiLike, BiDislike } from "react-icons/bi"; // Import BiLike and BiDislike from react-icons/bi
 import lastTopics from "../../public/data/posts.js";
 

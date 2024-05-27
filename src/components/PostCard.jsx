@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../styles/PostList.css";
 
 export default function PostCard({ topic, onLike, onDislike }) {
   return (

@@ -5,11 +5,7 @@ import { IoMdHome } from "react-icons/io";
 import { HiMagnifyingGlassPlus } from "react-icons/hi2";
 import { FiLogIn } from "react-icons/fi";
 import { FaLevelUpAlt } from "react-icons/fa";
-
-const AppBarContainer = styled.div`
-  position: relative;
-  z-index: 1;
-`;
+import "../styles/App.css";
 
 const DrawerContainer = styled.div`
   position: fixed;
@@ -38,17 +34,6 @@ const Overlay = styled.div`
   display: ${({ open }) => (open ? "block" : "none")};
 `;
 
-const IconsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
-`;
-
-const Icon = styled.span`
-  font-size: 24px;
-  margin-right: 30px;
-`;
-
 export default function AppBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -62,7 +47,7 @@ export default function AppBar() {
   };
 
   return (
-    <AppBarContainer>
+    <div className="appbar-container">
       <div className="container-appbar" id="home">
         <a href="#home">
           <div className="logo-appbar">
@@ -91,38 +76,38 @@ export default function AppBar() {
         </div>
       </div>
       <DrawerContainer open={drawerOpen}>
-        <IconsContainer>
-          <Icon>
+        <div className="icons-container">
+          <span className="icon">
             <IoMdHome />
-          </Icon>
+          </span>
           <a href="#home">Home</a>
-        </IconsContainer>
-        <IconsContainer>
-          <Icon>
+        </div>
+        <div className="icons-container">
+          <span className="icon">
             <FaLevelUpAlt />
-          </Icon>
+          </span>
           <a href="https://egvelho-blog-template.netlify.app/blog">
             Posts mais curtidos
           </a>
-        </IconsContainer>
+        </div>
         {loggedIn && (
           <>
-            <IconsContainer>
-              <Icon>
+            <div className="icons-container">
+              <span className="icon">
                 <FiLogIn />
-              </Icon>
+              </span>
               <a href="#login">Login</a>
-            </IconsContainer>
-            <IconsContainer>
-              <Icon>
+            </div>
+            <div className="icons-container">
+              <span className="icon">
                 <HiMagnifyingGlassPlus />
-              </Icon>
+              </span>
               <a href="#saiba-mais">Saiba mais</a>
-            </IconsContainer>
+            </div>
           </>
         )}
       </DrawerContainer>
       <Overlay open={drawerOpen} onClick={toggleDrawer} />
-    </AppBarContainer>
+    </div>
   );
 }

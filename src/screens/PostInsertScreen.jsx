@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../App.css";
+import "../styles/PostInsert.css";
 
 export default function PostInsertScreen() {
   const [loading, setLoading] = useState(false);

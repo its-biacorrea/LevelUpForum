@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PostCard from "./PostCard";
+import "../styles/PostList.css";
 
 export default function PostsList() {
   const [topicList, setTopicList] = useState([]);

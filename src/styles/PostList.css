@@ -1,0 +1,65 @@
+.card-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-link {
+  display: block;
+}
+
+.card {
+  background-color: #fff;
+  margin: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  height: 372px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fff;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.card-content {
+  flex: 1;
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 20px;
+  color: #800080;
+  margin-bottom: 3.2px;
+}
+
+.card-description {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.card-image {
+  width: 100%;
+  min-height: calc(256px - 167px);
+  object-fit: cover;
+}
+
+@media (max-width: 960px) {
+  .grid-container {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(1, minmax(300px, 1fr));
+  }
+}

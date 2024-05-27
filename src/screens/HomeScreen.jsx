@@ -1,5 +1,5 @@
 import "@fontsource/roboto";
-import "../App.css";
+import "../styles/Home.css";
 import Banner from "../components/Banner";
 import SaibaMais from "../components/SaibaMais";
 import Rodape from "../components/Rodape";

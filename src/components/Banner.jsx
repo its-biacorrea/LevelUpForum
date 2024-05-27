@@ -1,5 +1,5 @@
 import "@fontsource/roboto";
-import "../App.css";
+import "../styles/Home.css";
 
 export default function Banner() {
   return (
