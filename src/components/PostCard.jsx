@@ -6,10 +6,10 @@ import "../styles/PostList.css";
 export default function PostCard({ topic, onLike, onDislike }) {
   return (
     <div className="card-container">
-      <Link to={`/post/${topic.id}`} className="card-link">
-        <div className="card">
-          <div className="card-content">
-            <div className="card-content-inner">
+      <div className="card">
+        <div className="card-content">
+          <div className="card-content-inner">
+            <Link to={`/post/${topic.id}.json`} className="card-link">
               <span className="card-title">{topic.title}</span>
               <br />
               <span className="card-description">
@@ -29,18 +29,19 @@ export default function PostCard({ topic, onLike, onDislike }) {
                   : topic.keywords}
               </span>
               <br />
-              <span onClick={onLike}>
-                <BiLike /> {topic.likes}
-              </span>
-              {topic.dislikes && (
-                <span onClick={onDislike}>
-                  <BiDislike /> {topic.dislikes}
-                </span>
-              )}
-            </div>
+            </Link>
+            <span
+              onClick={onLike}
+              style={{ cursor: "pointer", marginRight: "10px" }}
+            >
+              <BiLike /> {topic.likes}
+            </span>
+            <span onClick={onDislike} style={{ cursor: "pointer" }}>
+              <BiDislike /> {topic.dislikes}
+            </span>
           </div>
         </div>
-      </Link>
+      </div>
     </div>
   );
 }

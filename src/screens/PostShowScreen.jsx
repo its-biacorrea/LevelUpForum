@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function PostShowScreen() {
   const { id: postId } = useParams();
+  const navigate = useNavigate();
   const baseUrl =
     "https://projetodebloco-8515c-default-rtdb.asia-southeast1.firebasedatabase.app";
 
@@ -11,7 +12,13 @@ export default function PostShowScreen() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${baseUrl}/posts/${postId}.json`)
+    if (!postId) {
+      setError("Post ID is not defined");
+      setLoading(false);
+      return;
+    }
+
+    fetch(`${baseUrl}/posts/${postId}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch data");
@@ -31,6 +38,23 @@ export default function PostShowScreen() {
       });
   }, [postId]);
 
+  function removePost() {
+    fetch(`${baseUrl}/posts/${postId}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to delete post");
+        }
+        setTopic(null);
+        navigate("/");
+        alert("Excluído com sucesso!!");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  }
+
   return (
     <div>
       {loading && <div>Loading...</div>}
@@ -49,7 +73,10 @@ export default function PostShowScreen() {
           </p>
           <p>Número de likes: {topic.likes}</p>
           <p>Número de dislikes: {topic.dislikes}</p>
-          <p>Número de comentários: {topic.comments.length}</p>
+          <p>
+            Número de comentários: {topic.comments ? topic.comments.length : 0}
+          </p>
+          <button onClick={removePost}>Excluir</button>
         </div>
       )}
     </div>
