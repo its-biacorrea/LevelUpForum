@@ -4,6 +4,9 @@ import "../styles/PostList.css";
 
 export default function PostsList() {
   const [topicList, setTopicList] = useState([]);
+  const [filterTerm, setFilterTerm] = useState("");
+  const [sortTerm, setSortTerm] = useState("publicationDate");
+  const [sortOrder, setSortOrder] = useState("asc");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -95,13 +98,73 @@ export default function PostsList() {
     );
   };
 
+  const filteredTopics = topicList.filter((topic) => {
+    const term = filterTerm.toLowerCase();
+    return (
+      topic.title.toLowerCase().includes(term) ||
+      (Array.isArray(topic.keywords) &&
+        topic.keywords.some((keyword) => keyword.toLowerCase().includes(term)))
+    );
+  });
+
+  const sortedTopics = filteredTopics.sort((a, b) => {
+    let comparison = 0;
+    if (sortTerm === "publicationDate") {
+      comparison = new Date(a.publicationDate) - new Date(b.publicationDate);
+    } else if (sortTerm === "keywords") {
+      comparison = a.keywords?.[0]?.localeCompare(b.keywords?.[0]) || 0;
+    } else if (sortTerm === "mostLiked") {
+      comparison = a.likes - b.likes;
+    }
+    return sortOrder === "asc" ? comparison : -comparison;
+  });
+
   return (
     <div>
       {loading && <div>Loading...</div>}
       {error && <div>Error: {error}</div>}
+      <div className="input-container">
+        <label htmlFor="inputSearch">Filtro: </label>
+        <input
+          value={filterTerm}
+          onChange={(event) => setFilterTerm(event.target.value)}
+          id="inputSearch"
+          placeholder="Buscar um post"
+        />
+        <label htmlFor="sortTerm">Ordenar por: </label>
+        <select
+          value={sortTerm}
+          onChange={(event) => setSortTerm(event.target.value)}
+          id="sortTerm"
+        >
+          <option value="publicationDate">Data de publicação</option>
+          <option value="keywords">Palavra-chave</option>
+          <option value="mostLiked">Mais curtidos</option>
+        </select>
+        <div className="radio-buttons">
+          <label>
+            <input
+              type="radio"
+              value="asc"
+              checked={sortOrder === "asc"}
+              onChange={() => setSortOrder("asc")}
+            />
+            Ascendente
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="desc"
+              checked={sortOrder === "desc"}
+              onChange={() => setSortOrder("desc")}
+            />
+            Descendente
+          </label>
+        </div>
+      </div>
       {!loading && !error && (
         <div className="grid-container">
-          {topicList.map((topic) => (
+          {sortedTopics.map((topic) => (
             <PostCard
               key={topic.id}
               topic={topic}

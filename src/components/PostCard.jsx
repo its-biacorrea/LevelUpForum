@@ -9,7 +9,7 @@ export default function PostCard({ topic, onLike, onDislike }) {
       <div className="card">
         <div className="card-content">
           <div className="card-content-inner">
-            <Link to={`/post/${topic.id}.json`} className="card-link">
+            <Link to={`/post/${topic.id}`} className="card-link">
               <span className="card-title">{topic.title}</span>
               <br />
               <span className="card-description">

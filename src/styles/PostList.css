@@ -52,6 +52,56 @@
   object-fit: cover;
 }
 
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.input-container label {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.input-container input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+  margin-right: 1rem;
+}
+
+.input-container select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 1rem;
+}
+
+.radio-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.radio-buttons label {
+  margin-right: 1rem;
+}
+
+.input-container button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #800080;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.input-container button:hover {
+  background-color: #5a005a;
+}
+
 @media (max-width: 960px) {
   .grid-container {
     grid-template-columns: repeat(2, minmax(300px, 1fr));
