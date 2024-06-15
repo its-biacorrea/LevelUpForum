@@ -8,7 +8,7 @@ describe("Testes para a Classe User", () => {
     user.atualizarPontos("postado");
     const pontos = user.pontos;
 
-    assert.equal(pontos, 3);
+    assert.equal(pontos, 6);
   });
 
   it("Deve retornar 2 pontos para um post comentado", () => {
@@ -17,7 +17,7 @@ describe("Testes para a Classe User", () => {
     user.atualizarPontos("comentado");
     const pontos = user.pontos;
 
-    assert.equal(pontos, 2);
+    assert.equal(pontos, 3);
   });
 
   it("Deve retornar 1 ponto para um post curtido", () => {
@@ -27,5 +27,16 @@ describe("Testes para a Classe User", () => {
     const pontos = user.pontos;
 
     assert.equal(pontos, 1);
+  });
+
+  it("Deve retornar 6 ponto para todos os posts", () => {
+    const user = new User();
+
+    user.atualizarPontos("postado");
+    user.atualizarPontos("comentado");
+    user.atualizarPontos("curtido");
+    const pontos = user.pontos;
+
+    assert.equal(pontos, 10);
   });
 });
