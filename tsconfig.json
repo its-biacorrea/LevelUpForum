@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "public/data"]
+  "include": ["src", "public/data", "tests", "tests", "proxyServer.js"]
 }

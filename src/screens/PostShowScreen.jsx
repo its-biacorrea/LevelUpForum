@@ -5,7 +5,7 @@ export default function PostShowScreen() {
   const { id: postId } = useParams();
   const navigate = useNavigate();
   const baseUrl =
-    "https://projetodebloco-8515c-default-rtdb.asia-southeast1.firebasedatabase.app";
+    "https://projetodebloco-8515c-default-rtdb.asia-southeast1.firebasedatabase.app/";
 
   const [topic, setTopic] = useState(null);
   const [loading, setLoading] = useState(true);
