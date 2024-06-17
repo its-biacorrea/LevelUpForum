@@ -1,0 +1,86 @@
+{
+  "topics": {
+    "post1": {
+      "id": 1,
+      "title": "O futuro da inteligência artificial",
+      "description": "Descubra as últimas tendências e previsões para o avanço da inteligência artificial e seu impacto na sociedade.",
+      "publicationDate": "01/04/2024",
+      "userName": "AIEnthusiast",
+      "keywords": ["Inteligência Artificial", "Tecnologia", "Inovação"],
+      "comments": ["Excelente tópico!", "Estou ansioso para ver as novidades!"],
+      "likes": 35,
+      "dislikes": 5
+    },
+    "post2": {
+      "id": 2,
+      "title": "A importância da sustentabilidade no século XXI",
+      "description": "Discuta sobre as medidas necessárias para promover a sustentabilidade ambiental e social em um mundo cada vez mais globalizado.",
+      "publicationDate": "02/04/2024",
+      "userName": "EcoWarrior",
+      "keywords": [
+        "Sustentabilidade",
+        "Meio Ambiente",
+        "Desenvolvimento Sustentável"
+      ],
+      "comments": [
+        "Precisamos agir agora!",
+        "Ideias para práticas sustentáveis?"
+      ],
+      "likes": 42,
+      "dislikes": 3
+    },
+    "post3": {
+      "id": 3,
+      "title": "A revolução da medicina personalizada",
+      "description": "Explore como a medicina personalizada está transformando o tratamento de doenças e melhorando a saúde individual.",
+      "publicationDate": "03/04/2024",
+      "userName": "MedicineAdvocate",
+      "keywords": ["Medicina", "Saúde", "Inovação Médica"],
+      "comments": [
+        "Incrível avanço!",
+        "Espero ver mais investimentos nessa área."
+      ],
+      "likes": 28,
+      "dislikes": 1
+    },
+    "post4": {
+      "id": 4,
+      "title": "A ascensão das criptomoedas: oportunidades e desafios",
+      "description": "Analise as perspectivas de crescimento das criptomoedas e os desafios regulatórios e de segurança que acompanham essa evolução.",
+      "publicationDate": "04/04/2024",
+      "userName": "CryptoTrader",
+      "keywords": ["Criptomoedas", "Finanças", "Tecnologia Blockchain"],
+      "comments": ["Investindo em Bitcoin!", "Cuidado com os riscos!"],
+      "likes": 37,
+      "dislikes": 6
+    },
+    "post5": {
+      "id": 5,
+      "title": "O poder das redes sociais na era digital",
+      "description": "Reflexões sobre o impacto das redes sociais na sociedade contemporânea e seu papel na formação de opinião e interação social.",
+      "publicationDate": "05/04/2024",
+      "userName": "SocialMediaGuru",
+      "keywords": ["Redes Sociais", "Tecnologia", "Comunicação"],
+      "comments": [
+        "Instagram ou TikTok?",
+        "Como evitar a desinformação online?"
+      ],
+      "likes": 45,
+      "dislikes": 8
+    },
+    "post6": {
+      "id": 6,
+      "title": "Explorando os mistérios do universo: astrofísica em foco",
+      "description": "Conversas fascinantes sobre as últimas descobertas e teorias no campo da astrofísica e da exploração espacial.",
+      "publicationDate": "06/04/2024",
+      "userName": "SpaceExplorer",
+      "keywords": ["Astrofísica", "Espaço", "Exploração Espacial"],
+      "comments": [
+        "Viagem a Marte em breve!",
+        "Buracos negros intrigam a humanidade."
+      ],
+      "likes": 39,
+      "dislikes": 4
+    }
+  }
+}
