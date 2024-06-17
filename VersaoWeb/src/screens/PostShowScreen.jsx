@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import "../styles/PostList.css";
 
 export default function PostShowScreen() {
   const { id: postId } = useParams();
   const navigate = useNavigate();
   const baseUrl =
-    "https://projetodebloco-8515c-default-rtdb.asia-southeast1.firebasedatabase.app/";
+    "https://projetodebloco-8515c-default-rtdb.asia-southeast1.firebasedatabase.app";
 
   const [topic, setTopic] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -18,7 +19,7 @@ export default function PostShowScreen() {
       return;
     }
 
-    fetch(`${baseUrl}/posts/${postId}`)
+    fetch(`${baseUrl}/posts/${postId}.json`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch data");
