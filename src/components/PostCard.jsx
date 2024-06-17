@@ -5,7 +5,7 @@ import "../styles/PostList.css";
 
 export default function PostCard({ topic, onLike, onDislike }) {
   return (
-    <div className="card-container">
+    <div data-cy="post_card" data-testid="post_card" className="card-container">
       <div className="card">
         <div className="card-content">
           <div className="card-content-inner">

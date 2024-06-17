@@ -6,7 +6,7 @@ import Conheca from "../components/Conheca";
 
 export default function HomeScreen() {
   return (
-    <div className="container">
+    <div data-cy="container" className="container">
       <Banner />
       <Conheca />
       <SaibaMais />

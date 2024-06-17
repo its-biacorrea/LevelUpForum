@@ -129,6 +129,7 @@ export default function PostsList() {
           value={filterTerm}
           onChange={(event) => setFilterTerm(event.target.value)}
           id="inputSearch"
+          data-testid="inputSearch"
           placeholder="Buscar um post"
         />
         <label htmlFor="sortTerm">Ordenar por: </label>

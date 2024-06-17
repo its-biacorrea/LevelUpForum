@@ -6,6 +6,7 @@ import { HiMagnifyingGlassPlus } from "react-icons/hi2";
 import { FiLogIn } from "react-icons/fi";
 import { FaLevelUpAlt } from "react-icons/fa";
 import "../styles/App.css";
+import { Link } from "react-router-dom";
 
 const DrawerContainer = styled.div`
   position: fixed;
@@ -49,7 +50,7 @@ export default function AppBar() {
   return (
     <div className="appbar-container">
       <div className="container-appbar" id="home">
-        <a href="/home">
+        <Link to="/home">
           <div className="logo-appbar">
             <div>
               <img src="logo.png" alt="Logo" />
@@ -58,17 +59,19 @@ export default function AppBar() {
               <span>LevelUpForum</span>
             </div>
           </div>
-        </a>
+        </Link>
         <div className="nav">
-          <a href="/home#postMaisCurtidos">POSTS MAIS CURTIDOS</a>
-          <a href="/posts">POSTS</a>
-          <a href="/add-post">ADICIONAR NOVO POST</a>
+          <Link to="/home#postMaisCurtidos">POSTS MAIS CURTIDOS</Link>
+          <Link data-cy="menu_posts" to="/posts">
+            POSTS
+          </Link>
+          <Link to="/add-post">ADICIONAR NOVO POST</Link>
         </div>
         <div className="appbar-end">
           {!loggedIn && (
-            <a href="/login" id="login" onClick={handleLogin}>
+            <Link to="/login" id="login" onClick={handleLogin}>
               <FiLogIn />
-            </a>
+            </Link>
           )}
           <button onClick={toggleDrawer}>
             <VscThreeBars />
@@ -86,7 +89,7 @@ export default function AppBar() {
           <span className="icon">
             <FaLevelUpAlt />
           </span>
-          <a href="/home#postMaisCurtidos">Posts mais curtidos</a>
+          <Link to="/home#postMaisCurtidos">Posts mais curtidos</Link>
         </div>
         {loggedIn && (
           <>
@@ -94,13 +97,13 @@ export default function AppBar() {
               <span className="icon">
                 <FiLogIn />
               </span>
-              <a href="/login">Login</a>
+              <Link to="/login">Login</Link>
             </div>
             <div className="icons-container">
               <span className="icon">
                 <HiMagnifyingGlassPlus />
               </span>
-              <a href="/home#saiba-mais">Saiba mais</a>
+              <Link to="/home#saiba-mais">Saiba mais</Link>
             </div>
           </>
         )}
