@@ -12,4 +12,9 @@ export default defineConfig({
       external: ["react-router-dom"],
     },
   },
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./test/setup.js",
+  },
 });
