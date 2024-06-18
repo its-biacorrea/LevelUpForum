@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { VscThreeBars } from "react-icons/vsc";
 import styled from "styled-components";
 import { IoMdHome } from "react-icons/io";
@@ -7,6 +7,7 @@ import { FiLogIn } from "react-icons/fi";
 import { FaLevelUpAlt } from "react-icons/fa";
 import "../styles/App.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../App";
 
 const DrawerContainer = styled.div`
   position: fixed;
@@ -37,14 +38,10 @@ const Overlay = styled.div`
 
 export default function AppBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const { loggedIn } = useContext(AuthContext);
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
-  };
-
-  const handleLogin = () => {
-    setLoggedIn(true);
   };
 
   return (
@@ -62,14 +59,19 @@ export default function AppBar() {
         </Link>
         <div className="nav">
           <Link to="/home#postMaisCurtidos">POSTS MAIS CURTIDOS</Link>
-          <Link data-cy="menu_posts" to="/posts">
-            POSTS
-          </Link>
-          <Link to="/add-post">ADICIONAR NOVO POST</Link>
+          {loggedIn && (
+            <>
+              <Link data-cy="menu_posts" to="/posts">
+                POSTS
+              </Link>
+
+              <Link to="/add-post">ADICIONAR NOVO POST</Link>
+            </>
+          )}
         </div>
         <div className="appbar-end">
           {!loggedIn && (
-            <Link to="/login" id="login" onClick={handleLogin}>
+            <Link to="/login" id="login">
               <FiLogIn />
             </Link>
           )}
@@ -95,15 +97,15 @@ export default function AppBar() {
           <>
             <div className="icons-container">
               <span className="icon">
-                <FiLogIn />
+                <HiMagnifyingGlassPlus />
               </span>
-              <Link to="/login">Login</Link>
+              <Link to="/add-post">Adicionar Novo Post</Link>
             </div>
             <div className="icons-container">
               <span className="icon">
-                <HiMagnifyingGlassPlus />
+                <FiLogIn />
               </span>
-              <Link to="/home#saiba-mais">Saiba mais</Link>
+              <Link to="/post/:id">Exibir Post</Link>
             </div>
           </>
         )}
