@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "excited-indigo-pretzel",
+    "slug": "snack-3abb1fe2-b0bb-44e8-a18f-afccfeb3e456",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./src/assets/favicon.png"
+    },
+    "plugin": [
+      "expo-image-picker",
+      {
+        "photosPermission": ""
+      }
+    ]
+  }
+}
